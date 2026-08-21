@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>poetry | written works ⋆𐙚</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 1. Page Background Image */
+        body {
+            background-image: url('images/portfolio/literary/literary-bg-1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        /* Clear out default card background */
+        .content-container {
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        /* 2. Translucent White Card Container */
+        .translucent-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 850px;
+            margin: 40px auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            font-family: 'Times New Roman', serif;
+            color: #111;
+            position: relative;
+        }
+
+        /* Top Subheader / Title */
+        .card-header-title {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        /* Publication Table Styling */
+        .pub-table-container {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .pub-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #000;
+            background: #fff;
+        }
+
+        .pub-table th, .pub-table td {
+            border: 1px solid #000;
+            padding: 12px 15px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .pub-table th {
+            background-color: #000;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Guitar sticker positioned on the right of the table */
+        .guitar-sticker {
+            position: absolute;
+            right: -40px;
+            top: 150px;
+            width: 130px;
+            z-index: 2;
+            transform: rotate(15deg);
+        }
+
+        /* Content Section Typographies */
+        .section-block {
+            margin-bottom: 55px;
+            position: relative; /* Essential for absolute positioning of stickers inside sections */
+        }
+
+        .section-block h3 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Two-Column Text Layout */
+        .two-column {
+            display: flex;
+            gap: 30px;
+        }
+
+        .two-column p {
+            flex: 1;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .single-column p {
+            line-height: 1.6;
+            font-size: 0.95rem;
+            max-width: 65%; /* Keeps text from bleeding under the right-side star sticker */
+        }
+
+        /* --- STICKER POSITIONING & SIZING --- */
+
+        /* 1. Small 3-Stars Sticker (Section 1) */
+        .small-stars-sticker {
+            position: absolute;
+            right: 400px;
+            top: 500px;
+            width: 300px;
+            z-index: 2;
+        }
+
+        /* 2. Dotted Stars Sticker (Section 2) */
+        .dotted-stars-sticker {
+            position: absolute;
+            right: -20px;
+            top: 380px;
+            width: 300px;
+            z-index: 2;
+            transform: rotate(10deg);
+            opacity: 0.6;
+        }
+
+        /* 3. Hearts Sticker (Enlarged & placed in corner between text blocks) */
+        .hearts-sticker {
+            position: absolute;
+            left: 0;
+            bottom: -35px;
+            width: 100px; /* Enlarged size */
+            z-index: 2;
+        }
+
+        .guitar-sticker, 
+        .small-stars-sticker, 
+        .dotted-stars-sticker, 
+        .floating-icon {
+            pointer-events: none;
+        }
+
+        /* Bottom Decorative Row Layout */
+        .decor-row {
+            display: flex;
+            justify-content: flex-end; /* Pushed to the right since hearts moved up */
+            align-items: flex-end;
+            margin-top: 40px;
+            gap: 25px;
+        }
+
+        /* 4. Cassette Image (Enlarged) */
+        .cassette-img {
+            width: 160px; /* Enlarged size */
+            object-fit: contain;
+        }
+
+        /* Character & CD Stacking container */
+        .image-stack {
+            position: relative;
+            display: inline-block;
+        }
+
+        .character-img {
+            max-height: 160px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .floating-icon {
+            position: absolute;
+            top: -70px;
+            right: -15px;
+            width: 120px;
+            z-index: 3;
+            object-fit: contain;
+        }
+
+        /* Custom Page Cursor */
+        body, *, a, button, .nav-link, .dropbtn {
+            cursor: url('images/portfolio/literary/luka-cursor.png'), auto !important;
+        }
+        /* Floating Spotify Player Styles */
+        .floating-music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            z-index: 9999;
+            display: none;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #121212;
+            color: #fff;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            font-family: sans-serif;
+        }
+
+        .player-close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .song-player-bar {
+                width: 100%;
+                max-width: 400px;
+                margin: 5px auto 10px auto;
+                padding: 0;
+        }
+
+        .section-block a {
+            text-decoration: none; /* Removes the default underline */
+            color: #4A3B52;        /* Sets the default text color (adjust hex code to match your site) */
+            transition: color 0.3s ease; /* Adds a smooth fade effect when hovering */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Standard Header -->
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">About Me!</a>
+            <span class="divider">|</span>
+            <div class="dropdown">
+                <span class="nav-link dropbtn">Portfolios ✰</span>
+                <div class="dropdown-content">
+                    <a href="poetry.html">poetry | written works</a>
+                    <a href="visual-arts.html">visual arts | graphic design</a>
+                    <a href="coding.html">coding</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="song-player-bar" style="margin-top: 30px; margin-bottom:-100px;">
+        <iframe style="border-radius:12px" 
+                src="https://open.spotify.com/embed/track/2ltpz0N6g4A7TwwLFk9biF?utm_source=generator&theme=0&si=13b57a2f085e4cc3" 
+                width="100%" 
+                height="152" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+        </iframe>
+    </div>
+
+    <main class="content-container">
+        <div class="translucent-card">
+            
+            <div class="card-header-title">
+                <a href="poetry.html" 
+                   class="music-trigger" 
+                   data-title="˖ ݁♬⋆.˚𝄞." 
+                   data-track="0WWLnzomFb6SJyEPBRzqAZ" 
+                   style="text-decoration: none; color: inherit; display: inline-block;">
+                    <b>soonersoonest ⋆｡°✩</b>
+                </a>
+            </div>
+
+            <!-- Publications Table Section -->
+            <div class="pub-table-container">
+                <table class="pub-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 35%;">Title of Piece</th>
+                            <th style="width: 65%;">Publication</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Red Meat</td>
+                            <td>Behind The Closet Door: A Pride Month Special Anthology | Jolle Publication</td>
+                        </tr>
+                        <tr>
+                            <td>State of the Art</td>
+                            <td>Helter Skelter | DLSU Writer's Guild</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                A Lightkeeper<br>
+                                A Mage’s Lullaby<br>
+                                Dissonance<br>
+                                Fiction<br>
+                                Seafaring<br>
+                                The Outskirts of a Town<br>
+                                The Seer’s Odyssey
+                            </td>
+                            <td>Issue 08: Whatevermaxxing | ParoxyZine</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Issue 04: The Tapestry | WIA Magazine</td>
+                        </tr>
+                        <tr>
+                            <td>Inside My Treehouse</td>
+                            <td>Issue 01: Time Keeps A Pocket | The Atelier Literary Magazine</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <img src="images/portfolio/literary/guitar.png" alt="Guitar Sticker" class="guitar-sticker">
+            </div>
+
+            <!-- First Lorem Section + 3 Small Stars Sticker -->
+            <div class="section-block single-column">
+                <h3 style="font-family: 'Times New Roman', serif;">Clematis</h3>
+                <p>
+                    When humans drop like flies<br>
+                    Who would visit the shrine?<br>
+                    As famine clouds the village,<br>
+                    Death fetches all and leaves none.<br>
+                    A plague that poisons a god,<br>
+                    The loss of faith contagious.<br><br>
+
+                    The strength from the villagers<br>
+                    Have long been vanquished<br>
+                    Perished into thin air, nothing.<br>
+                    No more believers who dream<br>
+                    Of praying to their beloved god,<br>
+                    Who now resembles a wilted flower.<br><br>
+
+                    There is but one survivor<br>
+                    The lover, the fool, the god’s heart<br>
+                    Shielded as a right-hand man,<br>
+                    Trusted as the highest subordinate;<br>
+                    A love that is too tragic, piercing,<br>
+                    Transcends immortality and beyond.<br><br>
+
+                    He who narrowly avoids death<br>
+                    Under a divine protection<br>
+                    Weeps for all of the deceased<br>
+                    As he fears the fleeting time.<br>
+                    One lapse of memory<br>
+                    Is his worst ever enemy.<br><br>
+
+                    When a deity’s vessel stays on earth,<br>
+                    Albeit lifeless and unmoving,<br>
+                    What better way there is<br>
+                    To ratify an act of remembrance<br>
+                    Than to devour the vessel<br>
+                    Piece by piece, out of love?<br><br>
+
+                    Godhood is not about hunger<br>
+                    And neither it is about desire;<br>
+                    One would speak it a testament<br>
+                    To an everlasting rule over gold<br>
+                    One that oversees everything,<br>
+                    Yet, remains flawed at the core.<br><br>
+
+                    What tastes exquisite the most<br>
+                    A part of the deity left in existence;<br>
+                    Every mouthful, every sip of blood,<br>
+                    A holy reverence that craves<br>
+                    To honor the traces of the past—<br>
+                    Each piece holds lavish stories.<br><br>
+
+                    “This way, I’ll never forget you.<br>
+                    This way, you’ll forever be in me.<br>
+                    I may not be a deity, my Lord,<br>
+                    As I am only your humble servant,<br>
+                    But have faith that this is my salvation,<br>
+                    And be that as it may, all for you.”<br><br>
+
+                    A worshipper so loyal denies<br>
+                    What has dawned to be impossible.<br>
+                    Twisted guts sprawled on the ground,<br>
+                    The fruit of obsession gleams;<br>
+                    Rooted in love as the blood mixes<br>
+                    With the fertile soil there to witness.<br><br>
+
+                    A grotesque finale there is,<br>
+                    The pinnacle of divinity<br>
+                    Amid tendrils of consumed agony;<br>
+                    In the decaying madness lies<br>
+                    Abound remains in relics<br>
+                    Wholly in the form of gluttony.<br>
+                </p>
+                <!-- 3-Stars Graphic placed beside text -->
+                <img src="images/portfolio/literary/stars-1.png" alt="Stars Sticker" class="small-stars-sticker">
+            </div>
+
+            <!-- Second Two-Column Section + Dotted Stars & Corner Hearts -->
+            <div class="section-block">
+                <h3 style="font-family: 'Times New Roman', serif;">Wraiths of the Carmine</h3>
+                <div class="two-column">
+                    <p>
+                        Always clad in black and white,<br>
+                        The cold of the morgue bites.<br>
+                        Sorrows float among the sky,<br>
+                        Void of stars yet full of eyes;<br>
+                        Watchful, wary, and weary<br>
+                        As the night is draped in eerie.<br><br>
+
+                        Two lonely figures live together<br>
+                        In a home no one dares to enter<br>
+                        A mortuary isolated in town,<br>
+                        Masked and dons a crown<br>
+                        Bloodied and of dried mosses,<br>
+                        All in the presence of corpses.<br><br>
+
+                        The dead have ears and whispers,<br>
+                        But secrets stay prisoners.<br>
+                        A mortician holds his darling friend,<br>
+                        His beloved, a chéri of crimson red.<br>
+                        What the town does not know,<br>
+                        The cherished bleeds in the snow.<br><br> 
+
+                        An eldritch creeps, blends, adapts—<br>
+                        Unbecoming of a human entrapped;<br>
+                        A humane life devoid of the complex,<br>
+                        The concept of emotions unpressed,<br>
+                        An honest mind of godhood speaks<br>
+                        For the untapped horrors to leak.<br><br>
+
+                        Autonomy vanishes and hides;<br>
+                        Is a stranger welcome inside?<br>
+                        A being of the unknown pretends<br>
+                        And yet shall never replace the dead.<br>
+                        The freezer remains full of flesh,<br>
+                        Torn limbs crushed in the mess.<br><br>
+
+                        The scalpel’s untouched for days,<br>
+                        Cadavers pile up in arrays.<br>
+                        The broken intellect of soul asks,<br>
+                        “Who. Are. You… Who. Are. You?”<br>
+                        To which the impostor responds,<br>
+                        “I am your creation. Your friend.”<br><br>
+
+                        The winds brew icier, unforgiving,<br>
+                        Shrieks flooding the grieving.<br>
+                        Memories fragmented, barely alight<br>
+                        As childhood gnaws at the corners.<br>
+                        The windowless room endures<br>
+                        With a flickering bulb and lures.<br><br>
+
+                        Mechanical responses fill the air<br>
+                        The funerary crawling with despair.<br>
+                        Short exchanges amid the lost<br>
+                        They listen, the wandering ghosts;<br>
+                        And yet, nobody seems to care<br>
+                        About identities yet to spare.<br><br>
+                    </p>
+                    <p style="position: relative;">
+                        Beyond the morbidity lies<br>
+                        A town so forgetful in guise.<br>
+                        The mourning doesn’t mourn,<br>
+                        No one lays to rest the unborn.<br>
+                        There is no lament among the living,<br>
+                        Just as there is no beginning.<br><br>
+                        
+                        The deceased had never existed.<br>
+                        The notion of their vessels buried<br>
+                        In an outskirts home is forgotten,<br>
+                        Skins soggy and organs rotten;<br>
+                        The names muddied in mists,<br>
+                        Their hollow sentiments adrift.<br><br>
+
+                        The mortician steps into the outside<br>
+                        Cemetery-bound, raising tides.<br>
+                        A tombstone draws him in,<br>
+                        Unnaturally, shattering within.<br>
+                        The engraved is unfamiliar;<br>
+                        The heart yearns, but does not tire.<br><br>
+
+                        Warm is the basket of food;<br>
+                        The mortician recollects, broods—<br>
+                        If he was who offered it ahead.<br>
+                        Years of youth spent with the dead,<br>
+                        All the love shared in spurs<br>
+                        And yet, remembrance all but blurs.<br><br>
+
+                        The rivers are still, no cries,<br>
+                        Not a sign of life for miles.<br>
+                        Upon returning, what greets<br>
+                        Is the stench of bile and meat.<br>
+                        The absence of heat persists<br>
+                        As the burden to carry itself twists.<br><br>
+
+                        New bodies appear in the throng<br>
+                        Deaths sustain, but not for long.<br>
+                        Slowly, the puzzle pieces themselves<br>
+                        Into the dark the doctor delves.<br>
+                        His “friend” awaits his arrival,<br>
+                        In the crematorium belies survival.<br><br>
+
+                        The unrecognized are cremated,<br>
+                        Bones and ashes negated.<br>
+                        In the flames do memories burn<br>
+                        To the point of no return.<br>
+                        The god feeds on fond hearts,<br>
+                        A receptacle believed to impart.<br><br>
+
+                        Embalming fluids sit on the corner<br>
+                        Where stood the wraiths of foreigners.<br>
+                        Adorned with thorns of skulls,<br>
+                        Cloaked in cuts from cavities dull,<br>
+                        Vital is the ritual of departures—<br>
+                        His existence far from erasure.<br><br>
+                        
+                        <!-- Dotted Stars Graphic -->
+                        <img src="images/portfolio/literary/stars-2.png" alt="Dotted Stars" class="dotted-stars-sticker">
+                    </p>
+                </div>
+                
+                <!-- Hearts sticker moved up into the corner between text blocks -->
+                <img src="images/portfolio/literary/hearts.png" alt="Hearts Sticker" class="hearts-sticker">
+            </div>
+
+            <!-- Bottom Paragraph Section -->
+            <div class="section-block single-column">
+                <p>
+                    Soonersoonest is a writer with a lot on their mind, and they hold endless dreams and imagination. They started publishing stories online, 
+                    from their roots on Wattpad, before gradually moving on to writing heartfelt and creative fanfiction on <a href="https://archiveofourown.org/users/bellamoon" target="_blank" rel="noopener noreferrer">Archive of Our Own</a>. As a child, 
+                    they would think of their own writing prompts and further enrich the stories behind their notebooks during class to relieve boredom. 
+                    Sometimes, when they weren’t busy with their academic and extracurricular responsibilities, or when they were desperate to escape 
+                    from the endless tasks for a while, they would pick up a pen and start writing on paper to understand the vastness and meaning of things, 
+                    and most of all, their life, which, while lacking direction, is still meaningful.
+                </p>
+            </div>
+
+            <!-- Bottom Decorative Row (Enlarged Cassette + Character/CD Stack) -->
+            <div class="decor-row">
+                <!-- Enlarged Cassette Image -->
+                <img src="images/portfolio/literary/cassette.png" alt="Cassette" class="cassette-img">
+                
+                <!-- Stacked Wrapper for Character + Floating Music Icon -->
+                <div class="image-stack">
+                    <img src="images/portfolio/literary/cd.png" alt="Music Notes CD" class="floating-icon">
+                    <img src="images/portfolio/literary/luka.jpg" alt="Character" class="character-img">
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const musicTriggers = document.querySelectorAll('.music-trigger');
+        let hoverTimer = null;
+        let playerCreated = false;
+
+        musicTriggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', function() {
+                if (!playerCreated) {
+                    const title = this.getAttribute('data-title');
+                    const trackId = this.getAttribute('data-track');
+                    
+                    hoverTimer = setTimeout(function() {
+                        createFloatingPlayer(title, trackId);
+                        playerCreated = true;
+                    }, 500); 
+                }
+            });
+
+            trigger.addEventListener('mouseleave', function() {
+                if (hoverTimer) {
+                    clearTimeout(hoverTimer);
+                    hoverTimer = null;
+                }
+            });
+        });
+
+        function createFloatingPlayer(title, trackId) {
+            const existingPlayer = document.querySelector('.floating-music-player');
+            if (existingPlayer) existingPlayer.remove();
+
+            const playerDiv = document.createElement('div');
+            playerDiv.className = 'floating-music-player';
+            
+            playerDiv.innerHTML = `
+                <div class="player-header">
+                    <span>${title}</span>
+                    <button class="player-close-btn" onclick="closePlayer()">×</button>
+                </div>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator&autoplay=1" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            `;
+            
+            document.body.appendChild(playerDiv);
+            playerDiv.style.display = 'block';
+        }
+
+        function closePlayer() {
+            const player = document.querySelector('.floating-music-player');
+            if (player) {
+                player.remove();
+            }
+            playerCreated = false; 
+        }
+    </script>
+</body>
+</html>
