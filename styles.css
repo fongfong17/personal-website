@@ -1,0 +1,1117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #ffffff;
+    background-image: 
+        linear-gradient(45deg, #333 25%, transparent 25%, transparent 75%, #333 75%, #333),
+        linear-gradient(45deg, #333 25%, transparent 25%, transparent 75%, #333 75%, #333);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    color: #333;
+    cursor: url('images/biyoo.png'), auto;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+
+    position: sticky; 
+    top: 0;        /* Tells the header to stick to the very top of the screen */
+    z-index: 1000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-nav {
+    background-color: #C39BD3;
+    padding: 15px 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.nav-link, .dropbtn {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.divider {
+    font-size: 1.5rem;
+    color: #000;
+}
+
+/* Dropdown Menu (Pink Boxes) */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Sits exactly at the bottom of the purple nav */
+    padding-top: 15px; /* Creates an invisible bridge for your cursor */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent; 
+    width: 140px; 
+    z-index: 10;
+    flex-direction: column;
+    gap: 4px; 
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.dropdown-content a {
+    background-color: #FFB6C1; 
+    color: #fff;
+    padding: 8px 5px;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif; 
+    font-size: 0.75rem;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #ff9eac;
+}
+
+/* Main Content Containers */
+.content-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Profile Card */
+.profile-card {
+    background-color: #E8DAEF; 
+    padding: 30px;
+    border-radius: 15px;
+    
+    /* Centers the card in the middle of the white background */
+    margin: 0 auto 40px auto; 
+    max-width: 350px; /* Shrinks it to an ID card size */
+    
+    /* Stacks elements vertically and centers them */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* Optional: Adds a slight shadow to make it pop like a physical card */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* Landscape ID Card Container */
+.profile-card.id-card-landscape {
+    background-color: #E8DAEF;
+    padding: 35px;
+    border-radius: 15px;
+    
+    /* Sizing & Centering */
+    max-width: 700px; /* Shrinks the card so it doesn't take up the whole white space */
+    margin: 0 auto 40px auto; 
+    
+    /* Two-column layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* Space between the left and right sides */
+    
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* --- LEFT SIDE: Photo & Name --- */
+.id-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 250px; /* Locks the width of the left column */
+}
+
+.id-photo {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.id-name {
+    margin: 0 0 5px 0;
+    font-size: 1.8rem;
+}
+
+.id-pronouns {
+    margin: 0;
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-family: 'Garamond', serif;
+}
+
+/* --- RIGHT SIDE: Lists & Icons --- */
+.id-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.id-bullets {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.8;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.1rem;
+    text-align: left;
+    list-style-position: outside;
+}
+
+/* The Line Divider */
+.id-divider {
+    border: 0;
+    height: 1px;
+    background-color: #000;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.fs-title {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-weight: 1000;
+    font-family: 'Garamond', serif;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: flex-end; /* Aligns icons to the right under the list */
+    gap: 15px;
+    margin-top: 20px;
+    padding-right: 20px; /* Pulls them slightly inward */
+}
+
+.social-icons a, .social-icons span {
+    color: #000; 
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-icons a:hover, .social-icons span:hover {
+    color: #C39BD3;
+    transform: scale(1.15);
+}
+
+.profile-info {
+    width: 100%;
+}
+
+.profile-image-placeholder img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #ccc;
+}
+
+.profile-info h1 { margin: 15px 0 5px 0; }
+
+.profile-info p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.centered-list {
+    list-style-position: inside; /* Ensures bullet points stay close to the centered text */
+    padding: 0;
+    margin: 5px 0 0 0;
+}
+
+
+/* Navigation Circles */
+.nav-circles {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.circle-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.circle-btn img {
+    width: 160px;  /* Increased from 100px */
+    height: 160px; /* Increased from 100px */
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    object-fit: cover;
+    border: 3px solid #C39BD3;
+}
+
+/* Sections & Typography */
+.section-divider {
+    border: 0;
+    height: 5px;
+    background: #ccc;
+    margin: 40px 0;
+
+    background: linear-gradient(to right, #ccc 50%, transparent 50%);
+    
+    /* 3. The first number (16px) controls the space between dots. 
+          The second number (8px) MUST match your height above! */
+    background-size: 16px 8px; 
+    background-repeat: repeat-x;
+    
+    margin: 40px 0;
+}
+
+.content-section h2 {
+    text-align: center;
+    text-transform: lowercase;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.scrollable-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 15px;
+    line-height: 1.6;
+}
+
+.interest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.career-list {
+    line-height: 1.8;
+}
+
+.skills-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skill-box {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1;
+
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-box:hover {
+    transform: scale(1.05);       /* Enlarges the box by 5% */
+    background-color: #C39BD3;    /* Changes the background color */
+    color: #ffffff;               /* Changes the text color for better contrast */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Optional: Adds a soft shadow for depth */
+}
+
+/* Interests 2-2-1 Icon Grid */
+.interests-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    max-width: 350px; /* Keeps the grid tight and centered */
+    margin: 0 auto 50px auto;
+}
+
+.icon-link img {
+    width: 140px;
+    height: 190px; /* Portrait aspect ratio */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid #E8DAEF; /* Subtle purple border to match theme */
+    background-color: #ddd; /* Light gray placeholder background */
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.icon-link img:hover {
+    transform: scale(1.05);
+    border-color: #C39BD3;
+}
+
+/* Forces the 5th icon to span both columns and sit exactly in the middle */
+.centered-icon {
+    grid-column: 1 / -1; 
+}
+
+/* Subsections Styling */
+.interest-subsection {
+    background-color: #f9f9f9;
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid #FFB6C1; /* Pink accent line */
+    scroll-margin-top: 40px; /* Ensures the header isn't cut off when clicking the anchor link */
+}
+
+.interest-subsection h3 {
+    margin-top: 0;
+    color: #333;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.5rem;
+    text-transform: lowercase;
+}
+
+.interest-subsection ul {
+    line-height: 1.8;
+    padding-left: 20px;
+}
+
+/* Reads Navigation Layout */
+.reads-nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Spacing between the top row and bottom row */
+    margin: 30px 0 40px 0;
+}
+
+.reads-top-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Spacing between the three top images */
+}
+
+.reads-bottom-row {
+    display: flex;
+    justify-content: center;
+}
+
+.read-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Space between the image and the text label */
+}
+
+.read-item a {
+    display: flex; /* Prevents an invisible baseline gap under the image */
+}
+
+/* Image Dimensions */
+.read-img-square {
+    width: 120px;
+    height: 120px;
+    object-fit: cover; /* Keeps images square without stretching */
+    background-color: #ddd;
+    transition: transform 0.2s ease;
+}
+
+.read-img-landscape {
+    width: 320px; /* Much wider to match the reference image */
+    height: 140px;
+    object-fit: cover;
+    background-color: #ddd;
+    transition: transform 0.2s ease;
+}
+
+/* Hover effects and Labels */
+.read-img-square:hover, .read-img-landscape:hover {
+    transform: scale(1.05); /* Slight zoom when hovering */
+}
+
+.read-label {
+    font-family: "Times New Roman", Times, serif; /* Matches previous serif fonts */
+    font-size: 0.95rem;
+    color: #4A3b52; /* Dark muted purple to match the text in the image */
+    font-weight: bold;
+}
+
+/* Nested Subsections for Reads */
+.nested-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    border-left: 3px solid #C39BD3; /* Creates a visual line separating lists */
+    scroll-margin-top: 40px; /* Accounts for header height when clicking the link */
+}
+
+.nested-content h4 {
+    margin: 10px 0 5px 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.nested-content p {
+    margin-top: 0;
+}
+
+/* Watches 2-2-1 Grid Navigation */
+.watches-nav-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 40px 0;
+}
+
+.watches-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    gap: 20px 25px;
+    justify-content: center;
+}
+
+.centered-item {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+/* Music 3-in-a-Row Navigation */
+.music-nav-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 40px 0;
+}
+
+.music-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* Layout Alignment Fixes */
+.reads-nav-container,
+.watches-nav-container,
+.music-nav-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.reads-top-row,
+.music-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+}
+
+.reads-bottom-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.watches-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    gap: 20px 25px;
+    justify-content: center;
+}
+
+.centered-item {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.read-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.manga-grid-3x3, .manhwa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 170px); /* Increased from 110px */
+    gap: 20px;                               /* Spaced out slightly for visual breathing room */
+    justify-content: center;
+    margin: 30px 0 40px 0;
+}
+
+.manga-grid-3x3 a img, .manhwa-grid a img {
+    width: 170px;  /* Increased from 110px */
+    height: 250px; /* Increased from 160px (maintains the standard ~1:1.47 manga ratio) */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #E8DAEF;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.manga-grid-3x3 a img:hover, .manhwa-grid a img:hover {
+    transform: scale(1.05);
+    border-color: #C39BD3;
+}
+
+/* 2x2 Character Icon Grid */
+.character-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 140px); /* Increased from 100px */
+    gap: 18px;                                /* Increased slightly for spacing */
+    justify-content: center;
+    margin: 25px 0 35px 0;
+}
+
+.character-icon {
+    width: 140px;                            /* Increased from 100px */
+    height: 140px;                           /* Increased from 100px */
+    object-fit: cover;
+    border-radius: 10px;                     /* Scaled up corner radius slightly */
+    border: 2px solid #E8DAEF;
+    background-color: #ddd;
+    transition: transform 0.2s ease;
+}
+
+.character-icon:hover {
+    transform: scale(1.05);
+}
+
+/* Star Bullet Markers (Exclusive to manga.html) */
+.manga-page li::marker, .manhwa-page li::marker, .movies-page li::marker, .animovies-page li::marker, .series-page li::marker, .anime-page li::marker, .artists-page li::marker, .playlists-page li::marker, .games-page li::marker {
+    content: "★ ";
+    color: black;
+    font-size: 1.2em;
+}
+
+.icon-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* Space between image and text label */
+    text-decoration: none; /* Prevents underline on the label */
+}
+
+.icon-label {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.95rem;
+    color: #4A3b52;
+    font-weight: bold;
+}
+
+/* Centered 1x2 Image Display */
+.manhwa-grid-1x2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0 35px 0;
+}
+
+.manhwa-grid-1x2 img {
+    height: 280px;       /* Set desired card height */
+    width: auto;         /* Adjusts width proportionally to prevent squeezing */
+    object-fit: contain; /* Prevents cropping top and bottom text */
+    border-radius: 12px;
+    border: 2px solid #E8DAEF;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+/* Centered Back Button Container */
+.back-btn-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 20px 0;
+}
+
+/* Stylized Pill Button */
+.back-btn {
+    display: inline-block;
+    background-color: #E8DAEF; /* Soft purple background */
+    color: #4A3B52;            /* Muted dark purple text */
+    padding: 10px 24px;
+    border-radius: 25px;       /* Rounded pill edges */
+    border: 2px solid #C39BD3;
+    text-decoration: none;     /* Removes standard hyperlink underline */
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+/* Hover Effect */
+.back-btn:hover {
+    background-color: #C39BD3;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* 1x4 Grid Layout */
+.grid-1x4 {
+    display: grid;
+    grid-template-columns: repeat(4, 150px); /* Creates 4 equal columns in 1 row */
+    gap: 18px;                                /* Spacing between the 4 cards */
+    justify-content: center;
+    margin: 30px 0 40px 0;
+}
+
+.grid-1x4 a img {
+    width: 150px;
+    height: 220px;                           /* Maintains the standard ~1:1.47 manga aspect ratio */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #E8DAEF;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.grid-1x4 a img:hover {
+    transform: scale(1.05);
+    border-color: #C39BD3;
+}
+
+/* YouTube Video Container */
+.video-container {
+    width: 100%;
+    max-width: 650px; /* Adjust maximum width to fit your layout */
+    margin: 25px auto; /* Centers the container vertically and horizontally */
+}
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Maintains video proportions automatically */
+    border-radius: 10px;  /* Matches your rounded image corners */
+    border: 2px solid #E8DAEF; /* Optional purple border matching your theme */
+}
+
+/* Collapsible Container */
+.rec-details {
+    margin: 50px auto 30px auto;
+    max-width: 550px;
+    width: 100%; /* Ensures the box stays wide even though the button is small */
+}
+
+/* The Clickable "Give Recs" Button - Fitted to text and centered */
+.rec-summary-btn {
+    background-color: #E8DAEF;
+    color: #4A3B52;
+    padding: 10px 25px;
+    border: 2px solid #C39BD3;
+    border-radius: 25px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none; /* Removes the default dropdown arrow */
+    transition: all 0.25s ease;
+    
+    /* Shrinks the button to fit the text and centers it */
+    display: block; 
+    width: fit-content; 
+    margin: 0 auto; 
+}
+
+/* Hides the default dropdown arrow for Safari/Chrome */
+.rec-summary-btn::-webkit-details-marker {
+    display: none;
+}
+
+.rec-summary-btn:hover {
+    background-color: #C39BD3;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* The Form Container */
+.recommendation-box {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 5px solid #FFB6C1; /* Pink accent line */
+    margin-top: 20px; 
+    animation: unfurl 0.3s ease-in-out;
+    box-sizing: border-box;
+}
+
+/* Fixed Structure Form */
+.rec-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Removes gap so the input and textarea touch perfectly */
+}
+
+/* Name Input - Fixed width, square edges */
+/* Name Input - Fixed width, square edges */
+.form-input {
+    width: 200px; 
+    padding: 8px 10px;
+    border: 1px solid #777; /* Restores the full border on all 4 sides */
+    margin-bottom: 12px;    /* Adds the gap to match the submit button */
+    background-color: #ffffff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    border-radius: 0; 
+}
+
+/* Textarea - Full width, square edges */
+.form-textarea {
+    width: 100%;
+    min-height: 220px;
+    padding: 8px 10px;
+    border: 1px solid #777;
+    background-color: #ffffff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    resize: vertical;
+    border-radius: 0;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #333;
+}
+
+/* Submit Button - Classic aligned-left style */
+.submit-btn {
+    background-color: #f0f0f0;
+    color: #000;
+    padding: 4px 16px;
+    border: 1px solid #777;
+    border-radius: 2px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    align-self: flex-start; /* Keeps the button pinned to the left edge */
+    margin-top: 12px;
+}
+
+.submit-btn:hover {
+    background-color: #e4e4e4;
+}
+
+@keyframes unfurl {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Modal Background */
+.custom-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(2px); /* Soft blur effect */
+}
+
+/* Pop-Up Box Styling */
+.modal-content {
+    background-color: #f9f9f9;
+    margin: 15% auto;
+    padding: 30px;
+    border: 2px solid #C39BD3;
+    border-radius: 12px;
+    border-left: 5px solid #FFB6C1;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    position: relative;
+    animation: unfurl 0.3s ease-in-out;
+}
+
+.modal-content h3 {
+    font-family: "Times New Roman", Times, serif;
+    color: #4A3b52;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+/* Close 'X' Button */
+.close-btn {
+    color: #777;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/* 1x3 Icon Grid */
+.grid-1x3 {
+    display: grid;
+    grid-template-columns: repeat(3, 140px); /* Locks in 3 equal columns for your 140px images */
+    gap: 25px;                               /* Adjust spacing between icons as needed */
+    justify-content: center;                 /* Centers the entire grid on the page */
+    margin: 30px auto 50px auto;             
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.filter-dropdown {
+    background-color: #E8DAEF;
+    color: #4A3B52;
+    padding: 10px 20px;
+    border: 2px solid #C39BD3;
+    border-radius: 25px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.filter-dropdown:hover, .filter-dropdown:focus {
+    background-color: #C39BD3;
+    color: #ffffff;
+}
+
+/* Base grid for the receipts */
+.receipt-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Constrain individual receipt image size */
+.receipt-item img {
+    width: 240px;       /* Decrease/increase this value (e.g., 220px - 260px) to tweak scale */
+    max-width: 100%;    /* Ensures responsiveness on mobile screens */
+    height: auto;       /* Maintains receipt proportions */
+}
+
+/* Custom Cursor for clickable elements */
+a, button, select, .circle-btn, .icon-link {
+    cursor: url('images/biyoo_hehe.png'), pointer;
+}
+
+/* Container that holds both the left lists and right embeds */
+.playlist-content-split {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;               /* Space between the text lists and the embeds */
+    align-items: flex-start; /* Aligns everything to the top */
+    margin: 30px 0;
+}
+
+/* Left side (Text Lists) */
+.playlist-lists {
+    flex: 1; /* Takes up 1 part of the width */
+}
+
+/* Right side (Spotify Embed Grid) */
+.playlist-embeds {
+    flex: 2; /* Takes up 2 parts of the width, giving the playlists more room */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates exactly 2 equal columns */
+    gap: 15px;                             /* Space between the Spotify players */
+}
+
+/* Optional: Make it stack neatly on mobile screens */
+@media (max-width: 768px) {
+    .playlist-content-split {
+        flex-direction: column;
+    }
+    .playlist-embeds {
+        grid-template-columns: 1fr; /* Changes to 1 per row on small phones */
+        width: 100%;
+    }
+}
+
+/* Base styling for playlist text links */
+.playlist-lists a {
+    text-decoration: none; /* Removes the default underline */
+    color: #4A3B52;        /* Sets the default text color (adjust hex code to match your site) */
+    transition: color 0.3s ease; /* Adds a smooth fade effect when hovering */
+}
+
+.playlist-lists a:hover {
+    color: #C39BD3;
+    text-decoration: none;
+}
+
+.cv-card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.cv-box {
+    max-width: 300px;
+}
+
+.cv-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #4A3B52;
+    font-weight: bold;
+    padding: 10px 25px;
+    margin-top: 10px;
+    border: 2px solid #C39BD3;
+    border-radius: 25px;
+    background-color: #E8DAEF;
+    transition: all 0.3s ease;
+}
+
+.cv-link:hover {
+    background-color: #9a70aa;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Container for the image and tooltip */
+.image-with-tooltip {
+    position: relative;
+    display: inline-block; /* Keeps the container tight around the image */
+}
+
+/* The secret text box */
+.image-hover-text {
+    position: fixed;
+    z-index: 9999;
+    
+    background-color: rgba(232, 218, 239, 0.95);
+    color: #4A3b52;
+    padding: 6px 12px; /* Smaller padding */
+    border: 1px solid #C39BD3; /* Thinner border */
+    border-radius: 6px;
+    font-size: 1rem; /* Smaller text size */
+    font-weight: bold;
+    white-space: nowrap;
+    
+    pointer-events: none;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Show the text when hovering over the container */
+.image-with-tooltip:hover .image-hover-text {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 1s; /* The 1-second hover delay */
+}
+
+/* Container for the text hover */
+.lyrics-tooltip-container {
+    position: relative;
+    display: inline-block;
+    /* Force your custom cursor here (replace 'biyoo_hehe.cur' or your custom cursor class) */
+    cursor: url('images/biyoo_hehe.png'), auto; /* Update with your exact custom cursor path if needed */
+}
+
+/* The lyrics pop-up box */
+.lyrics-hover-text {
+    position: fixed;
+    z-index: 9999;
+    
+    background-color: rgba(232, 218, 239, 0.98);
+    color: #4A3b52;
+    padding: 12px 16px;
+    border: 1px solid #C39BD3;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: normal;
+    text-align: left;
+    
+    white-space: pre-line; 
+    max-width: 320px;
+    line-height: 1.4;
+    
+    pointer-events: none;
+    
+    /* Use display/opacity trick for reliable delayed transitions */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    transition-delay: 0s; /* Instant hide when leaving */
+}
+
+/* Show it after 1 second of hovering */
+.lyrics-tooltip-container:hover .lyrics-hover-text {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 1s; /* The 1-second wait before showing */
+}
+
+/* Floating Persistent Music Player */
+.floating-music-player {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10000;
+    background-color: #E8DAEF;
+    border: 2px solid #C39BD3;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    display: none; /* Hidden by default until triggered */
+    animation: unfurl 0.3s ease-in-out;
+    width: 300px;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    color: #4A3B52;
+    font-weight: bold;
+}
+
+.player-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #4A3B52;
+    padding: 0 4px;
+}
+
+.player-close-btn:hover {
+    color: #000;
+}
