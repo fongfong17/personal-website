@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movies .✦ ݁˖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="movies-page">
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">About Me!</a>
+            <span class="divider">|</span>
+            <div class="dropdown">
+                <span class="nav-link dropbtn">Portfolios ✰</span>
+                <div class="dropdown-content">
+                    <a href="poetry.html">poetry | written works</a>
+                    <a href="visual-arts.html">visual arts</a>
+                    <a href="coding.html">coding</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <section class="content-section">
+            <h2>movies</h2>
+
+            <h3>Movies I love and would recommend:</h3>
+
+            <div class="grid-1x4">
+                <a href="https://letterboxd.com/film/mamma-mia/" target="_blank" rel="noopener noreferrer"><img src="images/interests/watches/movies/mamma-mia.jpg" alt="Mamma Mia!"></a>
+                <a href="https://letterboxd.com/film/uptown-girls/" target="_blank" rel="noopener noreferrer"><img src="images/interests/watches/movies/uptown-girls.jpg" alt="Uptown Girls"></a>
+                <a href="https://letterboxd.com/film/tick-tick-boom-2021/" target="_blank" rel="noopener noreferrer"><img src="images/interests/watches/movies/tick-tick-boom.jpg" alt="tick, tick… BOOM!"></a>
+                <a href="https://letterboxd.com/film/chicago/" target="_blank" rel="noopener noreferrer"><img src="images/interests/watches/movies/chicago.jpg" alt="Chicago"></a>
+            </div>
+
+            <ul>
+                <li>Mamma Mia! <i>(2008, dir. Phyllida Lloyd)</i></li>
+                <li>Uptown Girls <i>(2003, dir. Boaz Yakin)</i></li>
+                <li>Chicago <i>(2002, dir. Rob Marshall)</i></li>
+                <li>tick, tick… BOOM! <i>(2021, dir. Lin-Manuel Miranda)</i></li>
+                <li>10DANCE <i>(2025, dir. Keishi Otomo)</i></li>
+                <li>Everything Everywhere All At Once <i>(2022, dir. Daniel Scheinert, Daniel Kwan)</i></li>
+                <li>The Truman Show <i>(1998, dir. Peter Weir)</i></li>
+                <li>Heathers <i>(1989, dir. Michael Lehmann)</i></li>
+                <li>Dead Poets Society <i>(1989, dir. Peter Weir)</i></li>
+                <li>Ratatouille <i>(2007, dir. Brad Bird)</i></li>
+                <li>Over the Moon <i>(2020, dir. Glen Keane)</i></li>
+                <li>A Tale of Two Sisters <i>(2003, dir. Kim Jee-woon)</i></li>
+                <li>Sweet & Sour <i>(2021, dir. Lee Kae-byeok)</i></li>
+                <li>Your Name Engraved Herein <i>(2020, dir.  Kuang-Hui Liu)</i></li>
+                <li>Patay na si Hesus <i>(2016, dir. Victor Villanueva)</i></li>
+                <li>Heneral Luna <i>(2015, dir. Jerrold Tarog)</i></li>
+                <li>Conclave <i>(2024, dir. Edward Berger)</i></li>
+                <li>Jojo Rabbit <i>(2019, dir. Taika Waititi)</i></li>
+            </ul>
+
+            <details class="rec-details">
+                <summary class="rec-summary-btn">send recs? 💌</summary>
+                
+                <div class="recommendation-box">
+                    <form id="rec-form" action="https://formsubmit.co/sophia.pauline97@gmail.com" method="POST" class="rec-form">
+
+                        <input type="text" name="name" placeholder="your name (optional)" class="form-input">
+                        <textarea name="message" placeholder="write your recs here <3" required class="form-textarea"></textarea>
+                        
+                        <button type="submit" class="submit-btn">submit ✧</button>
+                    </form>
+                </div>
+            </details>
+
+            <div class="landscape-banner" style="text-align: center; margin-top:40px;">
+                <a href="https://boxd.it/9myoR" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/movies/jeon-wonwoo.jpg" alt="Jeon Wonwoo" style="width: 50%; object-fit: cover;">
+                </a>
+            </div>
+
+            <div class="back-btn-container">
+                <a href="watches.html" class="back-btn">← Back to Watches</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="success-modal" class="custom-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Yay! 💌</h3>
+            <p>Your message has been successfully sent. Thank you!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("rec-form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            const form = event.target;
+            const data = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById("success-modal").style.display = "block";
+                    form.reset(); 
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            })
+            .catch(error => {
+                alert("Oops! There was a problem submitting your form.");
+            });
+        });
+
+        document.querySelector(".close-btn").addEventListener("click", function() {
+            document.getElementById("success-modal").style.display = "none";
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("success-modal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

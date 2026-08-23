@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Others ⋆𐙚</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="anime-page">
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">About Me!</a>
+            <span class="divider">|</span>
+            <div class="dropdown">
+                <span class="nav-link dropbtn">Portfolios ✰</span>
+                <div class="dropdown-content">
+                    <a href="poetry.html">poetry | written works</a>
+                    <a href="visual-arts.html">visual arts</a>
+                    <a href="coding.html">coding</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <section class="content-section">
+            <h2>others</h2>
+
+            <h3>Hobbies:</h3>
+            <ul>
+                <li>photography</li>
+                <li>interior design</li>
+                <li>fashion styling</li>
+                <li>scrapbooking</li>
+                <li>graphic design</li>
+                <li>embroidering</li>
+                <li>songwriting</li>
+                <li>cosplay</li>
+            </ul>
+
+            <div class="landscape-banner" style="text-align: center;">
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/others/phantom-busters.jpg" alt="Phantom Busters" style="width: 50%; object-fit: cover;">
+                </a>
+            </div>
+            <hr class="section-divider">
+            <h3>Cosplays I've done:</h3>
+            <ul>
+                <li>Reze (Chainsaw Man)</li>
+                <li>Dazai Osamu (Bungou Stray Dogs)</li>
+                <li>Kamisato Ayaka (Genshin Impact)</li>
+                <li>Kim Dokja (Omniscient Reader’s Viewpoint)</li>
+            </ul>
+
+            <div class="grid-1x3">
+                <a href="https://youtu.be/bxya0iOjQMk?si=DxmdNU2Bh8yu2b70" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/others/flins.jpg" alt="Kyrill Chudomirovich Flins" class="character-icon">
+                </a>
+                <a href="https://youtu.be/qoF5VjO0_iE?si=arMlJs3biI_xY3PP" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/others/illuga.jpg" alt="Illuga" class="character-icon">
+                </a>
+                <a href="https://youtu.be/PYA-iyy2fxA?si=K3dWWidPj4PJYxzV" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/others/lohen.jpg" alt="Lohen" class="character-icon">
+                </a>
+            </div>
+            
+            <h3>Conventions/Art Markets I've attended:</h3>
+            <ul>
+                <li>Cosplay Matsuri 2022 (Day 3)</li>
+                <li>CONQuest 2023 (Day 3)</li>
+                <li>Anime and Cosplay Expo 2023 (Day 1)</li>
+                <li>Geek+Pop Super Turbo: Round 2 (Day 2)</li>
+                <li>Hoyofest PH 2023 (Day 8)</li>
+                <li>Cosplay Matsuri 2023 (Day 1)</li>
+                <li>Komiket Manila Bay (Day 2)</li>
+                <li>Komiket Pride 2024 (Day 3)</li>
+                <li>Manila International Book Fair 2024</li>
+                <li>Cosplay Mania 2024 (Day 1)</li>
+                <li>Patron of the Arts: Magics and Mystics (Day 2)</li>
+                <li>Cosplay Matsuri 2024 (Day 3)</li>
+                <li>Komiket Pride 2025 (Day 3)</li>
+                <li>Komiket by the Bay (Day 1)</li>
+                <li>Manila International Book Fair 2025</li>
+                <li>Cosplay Matsuri 2025 (Day 3)</li>
+                <li>Komiket Makati 2026 (Day 2)</li>
+                <li>Anime and Cosplay Expo 2026 (Day 2)</li>
+            </ul>
+
+            <div>
+                <p>and many more that aren’t listed here ᡣ𐭩</p>
+            </div>
+
+            <hr class="section-divider">
+
+            <h3 style="text-align:center;">Meet my Shih Tzu, Coco!</h3>
+
+            <div class="character-grid-2x2">
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/others/coco-1.jpeg" alt="Coco 1" class="character-icon">
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/others/coco-2.jpeg" alt="Coco 2" class="character-icon">
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/others/coco-3.jpeg" alt="Coco 3" class="character-icon">
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/others/coco-4.jpeg" alt="Coco 4" class="character-icon">
+                </a>
+            </div>
+
+            <div class="back-btn-container">
+                <a href="index.html#interests" class="back-btn">← Back to Main Page</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="success-modal" class="custom-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Yay! 💌</h3>
+            <p>Your message has been successfully sent. Thank you!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("rec-form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            const form = event.target;
+            const data = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById("success-modal").style.display = "block";
+                    form.reset(); 
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            })
+            .catch(error => {
+                alert("Oops! There was a problem submitting your form.");
+            });
+        });
+
+        document.querySelector(".close-btn").addEventListener("click", function() {
+            document.getElementById("success-modal").style.display = "none";
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("success-modal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

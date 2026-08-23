@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visual arts ᯓ★</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        header {
+            position: static !important;
+            top: auto !important;
+        }
+
+        body {
+            background-image: url('images/portfolio/visual-arts/visual-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .content-container {
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        body, *, a, button, .nav-link, .dropbtn {
+            cursor: url('images/portfolio/visual-arts/brushbuddy-cursor.png') 4 12, auto !important;
+        }
+
+        .song-player-bar {
+            width: 100%;
+            max-width: 400px;
+            margin: 5px auto 10px auto;
+            padding: 0;
+        }
+
+        .visual-container {
+            font-family: 'Montserrat', sans-serif;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            padding: 60px 40px;
+            max-width: 900px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-title {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        .art-item {
+            position: relative;
+            display: inline-block;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1;
+            transition: transform 0.3s ease;
+            cursor:pointer;
+        }
+
+        .art-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .carousel-slide .art-item:hover {
+            transform: none;
+        }
+
+        .art-item img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .magnify-icon {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-decoration: none;
+        }
+
+        .art-item:hover .magnify-icon,
+        .gd-box:hover .magnify-icon {
+            opacity: 1;
+        }
+
+        .magnify-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .row-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .row-space-around {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .sticker {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .gd-container {
+            display: flex;
+            justify-content: center; 
+            align-items: center;    
+            gap: 25px;
+            max-width: 700px;
+            margin: 20px auto 50px auto;
+        }
+
+        .gd-col-left {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 280px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .gd-col-right {
+            width: 380px;
+            flex-shrink: 0;
+            align-self: center;
+        }
+
+        .gd-box {
+            background-color: #b19fa9; 
+            color: #111;
+            border-radius: 15px;
+            display: block;
+            overflow: hidden; 
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            position: relative; 
+            z-index: 1;
+        }
+
+        .gd-box:hover {
+            transform: translateY(-5px);
+            background-color: #c4b4bd;
+        }
+
+        .gd-col-left .gd-box { 
+            height: auto; 
+        }
+
+        .gd-col-left .gd-box img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .gd-col-right {
+            flex: 2;
+            align-self: center;
+        }
+
+        .gd-col-right .gd-box { 
+            height: auto;
+        }
+
+        .gd-col-right .gd-box img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .photo-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .photo-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .camera-icon {
+            width: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-link:hover .camera-icon {
+            transform: scale(1.2) rotate(-5deg);
+        }
+
+        .camera-circle {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .photo-link:hover .camera-circle {
+            transform: scale(1.1) rotate(-5deg);
+            background-color: #fff;
+        }
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 100000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.85); 
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        #zoomedImage {
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @keyframes zoomIn {
+            from {transform: translateY(-50%) scale(0.9); opacity: 0;}
+            to {transform: translateY(-50%) scale(1); opacity: 1;}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #bbb;
+        }
+
+        .floating-music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            z-index: 9999;
+            display: none;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #121212;
+            color: #fff;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            font-family: sans-serif;
+        }
+
+        .player-close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .carousel-section-container {
+            margin-bottom: 50px;
+        }
+
+        .carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .carousel-track-container {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .carousel-slide .art-item img {
+            max-height: 420px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            color: #333;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .carousel-btn:hover {
+            background: #fff;
+            transform: scale(1.1);
+        }
+
+        .prev-btn { margin-right: 15px; }
+        .next-btn { margin-left: 15px; }
+
+        .carousel-dots {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 10px;
+            width: 10px;
+            margin: 0 4px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .dot.active, .dot:hover {
+            background-color: #b19fa9;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">About Me!</a>
+            <span class="divider">|</span>
+            <div class="dropdown">
+                <span class="nav-link dropbtn">Portfolios ✰</span>
+                <div class="dropdown-content">
+                    <a href="poetry.html">poetry | written works</a>
+                    <a href="visual-arts.html">visual arts</a>
+                    <a href="coding.html">coding</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="song-player-bar" style="margin-top: 30px; margin-bottom:-100px;">
+        <iframe style="border-radius:12px" 
+                src="https://open.spotify.com/embed/track/6MC0anRfGPzSWrvybgsY7O?utm_source=generator&si=cb2eb7510cd84aab" 
+                width="100%" 
+                height="152" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+        </iframe>
+    </div>
+
+    <main class="content-container">
+        <div class="visual-container">
+            
+            <div class="row-center" style="position: relative;">
+                <img src="images/portfolio/visual-arts/mascot-1.png" class="sticker" style="position: absolute; left: -20px; top: -10px; width: 240px; margin-top:-40px;" alt="Mascot">
+                <img src="images/portfolio/visual-arts/blue-star.png" class="sticker" style="position: absolute; right: 10px; top: -10px; width: 200px;" alt="Star">
+                <div class="section-label" style="position: absolute; top: 260px; left: 140px; margin: 0; z-index: 2;">illustrations</div>
+
+                <div>
+                    <div class="visual-title">I make art sometimes <span>˖𓍢ִ໋❀.ೃ࿔</span></div>
+                    <div class="art-item">
+                        <img src="images/portfolio/visual-arts/apple.png" alt="Apple" style="width: 250px;">
+                        <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-space-around" style="position: relative;">
+                <div class="art-item">
+                    <img src="images/portfolio/visual-arts/pomegranates.png" alt="Pomegranate" style="width: 300px;">
+                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="art-item">
+                        <img src="images/portfolio/visual-arts/watermelon.png" alt="Watermelon" style="width: 200px;">
+                        <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                    </div>
+                    <div style="margin-top: 10px; font-weight: 500; font-size: 0.9rem;">#FreePalestine</div>
+                </div>
+                <img src="images/portfolio/visual-arts/ascii.png" class="sticker" style="position: absolute; right: -10px; bottom: 0; width: 500px;" alt="Keychain">
+                <img src="images/portfolio/visual-arts/keychain.png" class="sticker" style="position: absolute; right: -40px; bottom: 0; width: 110px;" alt="Keychain">
+            </div>
+
+            <div style="position: relative; height: 440px; margin-bottom: 200px;">
+                
+                <img src="images/portfolio/visual-arts/mascot-purple.png" class="sticker" style="position: absolute; top: 200px; width: 250px; z-index: 1;" alt="Mascot">
+                
+                <div class="section-label" style="position: absolute; top: 500px; left: 200px; margin: 0;">sketches</div>
+
+                <div class="art-item" style="position: absolute; top: 10px; left: 180px;">
+                    <img src="images/portfolio/visual-arts/sketch-1.png" alt="Sketch 1" style="width: 170px; margin-left: 40px;">
+                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                </div>
+
+                <div class="art-item" style="position: absolute; top: 200px; left: 260px;">
+                    <img src="images/portfolio/visual-arts/sketch-2.png" alt="Sketch 2" style="width: 200px; margin-top:70px; margin-left:100px;">
+                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                </div>
+
+                <div class="art-item" style="position: absolute; top: 30px; left: 380px;">
+                    <img src="images/portfolio/visual-arts/sketch-3.png" alt="Sketch 3" style="width: 210px; margin-left:50px">
+                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                </div>
+
+                <img src="images/portfolio/visual-arts/spiral-purple.png" class="sticker" style="position: absolute; top: 50px; right: 10px; width: 170px;" alt="Spiral">
+                <img src="images/portfolio/visual-arts/castorice.png" class="sticker" style="position: absolute; top: 480px; right: 90px; width: 150px; z-index: 2;" alt="Castorice">
+            </div>
+
+            <div style="text-align:center; font-size: 1.2rem; margin: 30px 0;">𓆝 𓆟 𓆞 𓆝 𓆟</div>
+
+            <div class="section-label">embroidery</div>
+            <div style="position: relative; margin-bottom: 50px; padding-top: 20px;">
+                
+                <img src="images/portfolio/visual-arts/tulip.png" class="sticker" style="position: absolute; right: 700px; top: 120px; width: 210px; z-index: 0;" alt="Tulip">
+                <img src="images/portfolio/visual-arts/bubbles.png" class="sticker" style="position: absolute; right:-35px; bottom: -50px; width: 200px; z-index: 0;" alt="Bubbles">
+                <img src="images/portfolio/visual-arts/cd-purple.png" class="sticker" style="position: absolute; right: 300px; bottom:130px; width: 400px; z-index: 0;" alt="CD Purple">
+
+                <div style="display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap;">
+                    
+                    <div class="art-item" style="width: 240px; flex-shrink: 0;">
+                        <img src="images/portfolio/visual-arts/embroidery-1.jpg" alt="Embroidery 1" style="width: 100%; height: auto; display: block;">
+                        <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                    </div>
+
+                    <div class="art-item" style="width: 240px; flex-shrink: 0;">
+                        <img src="images/portfolio/visual-arts/embroidery-2.jpg" alt="Embroidery 2" style="width: 100%; height: auto; display: block;">
+                        <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                    </div>
+
+                    <div class="art-item" style="width: 200px; flex-shrink: 0;">
+                        <img src="images/portfolio/visual-arts/embroidery-3.jpg" alt="Embroidery 3" style="width: 100%; height: auto; display: block;">
+                        <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center; font-size: 1.2rem; margin: 30px 0;">𓆝 𓆟 𓆞 𓆝 𓆟</div>
+
+            <div class="section-label">scrapbook</div>
+            <div class="carousel-section-container" style="position: relative;">
+                <img src="images/portfolio/visual-arts/mascot-blue.png" class="sticker" style="position: absolute; left: -30px; bottom: -10px; width: 150px;" alt="Mascot">
+                <img src="images/portfolio/visual-arts/star-spiky.png" class="sticker" style="position: absolute; right: -20px; top: -70px; width: 200px;" alt="Star">
+                <img src="images/portfolio/visual-arts/blue-bg.png" class="sticker" style="position: absolute; left: 80px; top: -5px; width: 450px;" alt="Blue Pattern">
+
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+                    
+                    <div class="carousel-track-container">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-slide">
+                                <div class="art-item">
+                                    <img src="images/portfolio/visual-arts/scrapbook-1.jpg" alt="Scrapbook Spread 1">
+                                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="art-item">
+                                    <img src="images/portfolio/visual-arts/scrapbook-3.jpg" alt="Scrapbook Spread 3">
+                                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="art-item">
+                                    <img src="images/portfolio/visual-arts/scrapbook-2.jpg" alt="Scrapbook Spread 2">
+                                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="art-item">
+                                    <img src="images/portfolio/visual-arts/scrapbook-4.jpg" alt="Scrapbook Spread 4">
+                                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="art-item">
+                                    <img src="images/portfolio/visual-arts/scrapbook-5.jpg" alt="Scrapbook Spread 5">
+                                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="art-item">
+                                    <img src="images/portfolio/visual-arts/scrapbook-6.jpg" alt="Anime Sketch">
+                                    <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+                </div>
+
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+
+            <div style="text-align:center; font-size: 1.2rem; margin: 30px 0;">𓆝 𓆟 𓆞 𓆝 𓆟</div>
+
+    <div class="section-label">oil pastel</div>
+    <div style="position: relative; height: 360px; margin-bottom: 50px;">
+        
+        <img src="images/portfolio/visual-arts/pink-bg.png" class="sticker" style="position: absolute; top: 90px; left: 100px; width: 280px; z-index: 0;" alt="Pink Background Burst">
+
+        <img src="images/portfolio/visual-arts/pink-star.png" class="sticker" style="position: absolute; top: -50px; right: 170px; width: 200px; z-index: 0;" alt="Pink Star">
+
+        <div class="art-item" style="position: absolute; top: 20px; left: 30px; width: 190px; z-index: 1;">
+            <img src="images/portfolio/visual-arts/oil-pastel-1.jpg" alt="Scarf Drawing" style="width: 100%; height: auto; display: block;">
+            <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+        </div>
+
+        <div class="art-item" style="position: absolute; top: 140px; left: 245px; width: 280px; z-index: 1;">
+            <img src="images/portfolio/visual-arts/oil-pastel-2.jpg" alt="Legs Drawing" style="width: 100%; height: auto; display: block;">
+            <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+        </div>
+
+        <div class="art-item" style="position: absolute; top: 50px; right: 60px; width: 210px; z-index: 1;">
+            <img src="images/portfolio/visual-arts/oil-pastel-3.jpg" alt="Single Leg" style="width: 100%; height: auto; display: block;">
+            <div class="magnify-icon" onclick="openModal(this)">⛶</div>
+        </div>
+    </div>
+
+            <div style="text-align:center; font-size: 1.2rem; margin: 30px 0;">𓆝 𓆟 𓆞 𓆝 𓆟</div>
+
+            <div class="section-label">graphic design</div>
+            <div class="gd-container">
+                <div class="gd-col-left">
+                    <img src="images/portfolio/visual-arts/blue-star-3d.png" class="sticker" style="position: absolute; left: -100px; top: 10px; width: 100px;" alt="3D Star">
+                    <img src="images/portfolio/visual-arts/pink-star-3d.png" class="sticker" style="position: absolute; left: -90px; top: 100px; width: 70px;" alt="3D Star">
+                    
+                    <div class="gd-box">
+                        <img src="images/portfolio/visual-arts/LCFILIB Praymer GROUP4 1st page.png" alt="Graphic Design 1">
+                        <div class="magnify-icon" onclick="openPdfModal('images/portfolio/visual-arts/LCFILIB Praymer GROUP4.pdf')">⛶</div>
+                    </div>
+                    <div class="gd-box">
+                        <img src="images/portfolio/visual-arts/GEARTAP Synthesis.png" alt="Graphic Design 2">
+                        <div class="magnify-icon" onclick="openPdfModal('images/portfolio/visual-arts/GEARTAP Synthesis.pdf')">⛶</div>
+                    </div>
+                    <div class="gd-box">
+                        <img src="images/portfolio/visual-arts/GEARTAP Group 3 - Art Pitch - 1st page.png" alt="Graphic Design 3">
+                        <div class="magnify-icon" onclick="openPdfModal('images/portfolio/visual-arts/GEARTAP Group 3 - Art Pitch.pdf')">⛶</div>
+                    </div>
+                </div>
+                
+                <div class="gd-col-right">
+                    <div class="gd-box">
+                        <img src="images/portfolio/visual-arts/LCFILIB DigitalPoster_GROUP4.png" alt="Main Graphic Design Work">
+                        <div class="magnify-icon" onclick="openPdfModal('images/portfolio/visual-arts/LCFILIB DigitalPoster_GROUP4.pdf')">⛶</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align:center; font-size: 1.2rem; margin: 30px 0;">𓆝 𓆟 𓆞 𓆝 𓆟</div>
+
+            <div class="photo-footer">
+                <div class="photo-link" onclick="openPdfModal('images/portfolio/visual-arts/Photography Portfolio.pdf')">
+                    <div class="camera-circle">
+                        <img src="images/portfolio/visual-arts/camera.png" alt="Camera" class="camera-icon">
+                    </div>
+                    <span>photography portfolio</span>
+                </div>
+            </div>
+            <img src="images/portfolio/visual-arts/basiilleaf.png" alt="Basiilleaf" class="sticker" style="position: absolute; bottom: 5px; right: 20px; width: 150px; z-index: 2;">
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="zoomedImage">
+    </div>
+
+    <div id="pdfModal" class="modal">
+        <span class="close-modal" onclick="closePdfModal()">&times;</span>
+        <div class="modal-content" style="width: 85%; height: 85vh; background: #fff; border-radius: 8px; overflow: hidden; padding: 0;">
+            <iframe id="pdfFrame" src="" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        const musicTriggers = document.querySelectorAll('.music-trigger');
+        let hoverTimer = null;
+        let playerCreated = false;
+
+        musicTriggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', function() {
+                if (!playerCreated) {
+                    const title = this.getAttribute('data-title');
+                    const trackId = this.getAttribute('data-track');
+                    
+                    hoverTimer = setTimeout(function() {
+                        createFloatingPlayer(title, trackId);
+                        playerCreated = true;
+                    }, 500); 
+                }
+            });
+
+            trigger.addEventListener('mouseleave', function() {
+                if (hoverTimer) {
+                    clearTimeout(hoverTimer);
+                    hoverTimer = null;
+                }
+            });
+        });
+
+        function createFloatingPlayer(title, trackId) {
+            const existingPlayer = document.querySelector('.floating-music-player');
+            if (existingPlayer) existingPlayer.remove();
+
+            const playerDiv = document.createElement('div');
+            playerDiv.className = 'floating-music-player';
+            
+            playerDiv.innerHTML = `
+                <div class="player-header">
+                    <span>${title}</span>
+                    <button class="player-close-btn" onclick="closePlayer()">×</button>
+                </div>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator&autoplay=1" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            `;
+            
+            document.body.appendChild(playerDiv);
+            playerDiv.style.display = 'block';
+        }
+
+        function closePlayer() {
+            const player = document.querySelector('.floating-music-player');
+            if (player) {
+                player.remove();
+            }
+            playerCreated = false; 
+        }
+
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("zoomedImage");
+
+        function openModal(element) {
+            const imgSource = element.previousElementSibling.src;
+            modal.style.display = "block";
+            modalImg.src = imgSource;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        const pdfModal = document.getElementById("pdfModal");
+        const pdfFrame = document.getElementById("pdfFrame");
+
+        function openPdfModal(pdfSrc) {
+            pdfModal.style.display = "block";
+            pdfFrame.src = pdfSrc;
+        }
+
+        function closePdfModal() {
+            pdfModal.style.display = "none";
+            pdfFrame.src = "";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+            if (event.target == pdfModal) {
+                closePdfModal();
+            }
+        }
+
+        let currentSlideIndex = 0;
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const dots = document.querySelectorAll('.dot');
+            if (!track) return;
+            
+            track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlideIndex);
+            });
+        }
+
+        function moveSlide(direction) {
+            const totalSlides = document.querySelectorAll('.carousel-slide').length;
+            currentSlideIndex = (currentSlideIndex + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index;
+            updateCarousel();
+        }
+
+        document.querySelectorAll('.art-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (e.target.closest('.magnify-icon')) return;
+                
+                const img = this.querySelector('img');
+                if (img) {
+                    modal.style.display = "block";
+                    modalImg.src = img.src;
+                }
+            });
+        });
+
+        document.querySelectorAll('.gd-box').forEach(box => {
+            box.addEventListener('click', function(e) {
+                if (e.target.closest('.magnify-icon')) return;
+                
+                const magnifyIcon = this.querySelector('.magnify-icon');
+                if (magnifyIcon) {
+                    const onclickAttr = magnifyIcon.getAttribute('onclick');
+                    const match = onclickAttr.match(/'([^']+)'/);
+                    if (match && match[1]) {
+                        openPdfModal(match[1]);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

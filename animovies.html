@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animovies .✦ ݁˖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="animovies-page">
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">About Me!</a>
+            <span class="divider">|</span>
+            <div class="dropdown">
+                <span class="nav-link dropbtn">Portfolios ✰</span>
+                <div class="dropdown-content">
+                    <a href="poetry.html">poetry | written works</a>
+                    <a href="visual-arts.html">visual arts</a>
+                    <a href="coding.html">coding</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <section class="content-section">
+            <h2>animovies</h2>
+
+            <h3>Animovies I love and would recommend:</h3>
+
+            <div class="grid-1x4">
+                <a href="https://letterboxd.com/film/words-bubble-up-like-soda-pop/" target="_blank" rel="noopener noreferrer"><img src="images/interests/watches/animovies/words-bubble-up-like-soda-pop.jpg" alt="Words Bubble Up Like Soda Pop"></a>
+                <a href="https://letterboxd.com/film/maquia-when-the-promised-flower-blooms/" target="_blank" rel="noopener noreferrer"><img src="images/interests/watches/animovies/maquia-when-the-promised-flower-blooms.jpg" alt="Maquia When the Promised Flower Blooms"></a>
+                <a href="https://letterboxd.com/film/mirai/" target="_blank" rel="noopener noreferrer"><img src="images/interests/watches/animovies/mirai.jpg" alt="tick, tick… BOOM!"></a>
+                <a href="https://letterboxd.com/film/josee-the-tiger-and-the-fish-2020/" target="_blank" rel="noopener noreferrer"><img src="images/interests/watches/animovies/josee-the-tiger-and-the-fish.jpg" alt="Chicago"></a>
+            </div>
+
+            <ul>
+                <li>Words Bubble Up Like Soda Pop <i>(2020, dir.  Kyohei Ishiguro)</i></li>
+                <li>Maquia: When the Promised Flower Blooms <i>(2018, dir. Mari Okada)</i></li>
+                <li>Mirai <i>(2018, dir. Mamoru Hosoda)</i></li>
+                <li>Josee, the Tiger and the Fish <i>(2020, dir. Kotaro Tamura)</i></li>
+                <li>Colorful <i>(2010, dir. Keiichi Hara)</i></li>
+                <li>The Anthem of the Heart <i>(2015, dir. Tatsuyuki Nagai)</i></li>
+                <li>Children of the Sea <i>(2019, dir. Ayumu Watanabe)</i></li>
+            </ul>
+
+            <details class="rec-details">
+                <summary class="rec-summary-btn">send recs? 💌</summary>
+                
+                <div class="recommendation-box">
+                    <form id="rec-form" action="https://formsubmit.co/sophia.pauline97@gmail.com" method="POST" class="rec-form">
+
+                        <input type="text" name="name" placeholder="your name (optional)" class="form-input">
+                        <textarea name="message" placeholder="write your recs here <3" required class="form-textarea"></textarea>
+                        
+                        <button type="submit" class="submit-btn">submit ✧</button>
+                    </form>
+                </div>
+            </details>
+
+            <div class="character-grid-2x2">
+                <a href="https://youtu.be/VgPo3q01kbg?si=3DPBn53XiKw-7r54" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/animovies/luka-1.jpg" alt="Luka 1" class="character-icon">
+                </a>
+                <a href="https://youtu.be/4Dr7HljrsoQ?si=kalOwjVNYgP7ZTM0" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/animovies/luka-2.jpg" alt="Luka 2" class="character-icon">
+                </a>
+                <a href="https://youtu.be/rrngM9DmDfk?si=ka3aj04GseCTY87L" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/animovies/luka-3.jpg" alt="Luka 3" class="character-icon">
+                </a>
+                <a href="https://open.spotify.com/track/04I1qZbwVttEN2Red2ZUJu?si=4992ff083b794758" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/animovies/luka-4.jpg" alt="Luka 4" class="character-icon">
+                </a>
+            </div>
+
+            <div class="back-btn-container">
+                <a href="watches.html" class="back-btn">← Back to Watches</a>
+            </div>
+        </section>
+    </main>
+    
+    <div id="success-modal" class="custom-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Yay! 💌</h3>
+            <p>Your message has been successfully sent. Thank you!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("rec-form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            const form = event.target;
+            const data = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById("success-modal").style.display = "block";
+                    form.reset(); 
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            })
+            .catch(error => {
+                alert("Oops! There was a problem submitting your form.");
+            });
+        });
+
+        document.querySelector(".close-btn").addEventListener("click", function() {
+            document.getElementById("success-modal").style.display = "none";
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("success-modal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

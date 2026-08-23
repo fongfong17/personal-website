@@ -1,0 +1,5 @@
+todo for another time:
+- add a vertical scrollbar on the corner to keep track of the pages, to be tapped by a three horizontal line icon
+
+notes:
+- am currently not accepting recs for reads because my backlog is long

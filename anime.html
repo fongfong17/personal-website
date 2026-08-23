@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anime .✦ ݁˖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="anime-page">
+    <header>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">About Me!</a>
+            <span class="divider">|</span>
+            <div class="dropdown">
+                <span class="nav-link dropbtn">Portfolios ✰</span>
+                <div class="dropdown-content">
+                    <a href="poetry.html">poetry | written works</a>
+                    <a href="visual-arts.html">visual arts</a>
+                    <a href="coding.html">coding</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <section class="content-section">
+            <h2>anime</h2>
+
+            <h3>Anime series I love and would recommend:</h3>
+
+            <div class="landscape-banner" style="text-align: center;">
+                <a href="https://www.netflix.com/ph-en/title/81771389" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/anime/wind-breaker.jpg" alt="Wind Breaker" style="width: 30%; object-fit: cover;">
+                </a>
+            </div>
+
+            <ul>
+                <li>Bleach</li>
+                <li>Haikyuu!!</li>
+                <li>Dr. Stone</li>
+                <li>Magi: The Labyrinth of Magic</li>
+                <li>Sk8: The Infinity</li>
+                <li>Run with the Wind</li>
+                <li>Akudama Drive</li>
+                <li>Moriarty the Patriot</li>
+                <li>Ao Ashi</li>
+                <li>Mashle: Magic and Muscles</li>
+                <li>Land of the Lustrous</li>
+                <li>Wind Breaker</li>
+                <li>Oblivion Battery</li>
+                <li>Dungeon Meshi</li>
+                <li>Go for it, Nakamura-kun!!</li>
+            </ul>
+
+            <div class="landscape-banner" style="text-align: center;">
+                <a href="https://www.netflix.com/ph-en/title/81748453?source=35&fromWatch=true" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/anime/a-sign-of-affection.JPG" alt="A Sign of Affection" style="width: 40%; object-fit: cover;">
+                </a>
+            </div>
+
+            <details class="rec-details">
+                <summary class="rec-summary-btn">send recs? 💌</summary>
+                
+                <div class="recommendation-box">
+                    <form id="rec-form" action="https://formsubmit.co/sophia.pauline97@gmail.com" method="POST" class="rec-form">
+
+                        <input type="text" name="name" placeholder="your name (optional)" class="form-input">
+                        <textarea name="message" placeholder="write your recs here <3" required class="form-textarea"></textarea>
+                        
+                        <button type="submit" class="submit-btn">submit ✧</button>
+                    </form>
+                </div>
+            </details>
+
+            <div class="character-grid-2x2">
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/anime/filler-1.jpg" alt="Chihaya Shunpei 2" class="character-icon">
+                </a>
+                <a href="https://www.netflix.com/ph-en/title/81768229" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/anime/chihaya-shunpei-2.jpg" alt="Chihaya Shunpei 2" class="character-icon">
+                </a>
+                <a href="https://mangaplus.shueisha.co.jp/titles/100504" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/anime/chihaya-shunpei-1.jpg" alt="Chihaya Shunpei 1" class="character-icon">
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <img src="images/interests/watches/anime/filler-2.jpg" alt="Chihaya Shunpei 2" class="character-icon">
+                </a>
+            </div>
+
+            <div class="back-btn-container">
+                <a href="watches.html" class="back-btn">← Back to Watches</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="success-modal" class="custom-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Yay! 💌</h3>
+            <p>Your message has been successfully sent. Thank you!</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("rec-form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            const form = event.target;
+            const data = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById("success-modal").style.display = "block";
+                    form.reset(); 
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            })
+            .catch(error => {
+                alert("Oops! There was a problem submitting your form.");
+            });
+        });
+
+        document.querySelector(".close-btn").addEventListener("click", function() {
+            document.getElementById("success-modal").style.display = "none";
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("success-modal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
