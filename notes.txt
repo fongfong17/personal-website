@@ -1,5 +1,6 @@
 todo for another time:
-- add a vertical scrollbar on the corner to keep track of the pages, to be tapped by a three horizontal line icon
+- add a vertical scrollbar on the corner to keep track of the pages, to be triggered by clicking a three horizontal line icon
+- some images when hovered on aren't transforming
 
 notes:
 - am currently not accepting recs for reads because my backlog is long
