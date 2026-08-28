@@ -258,6 +258,59 @@
             background-color: #fff;
             color: #000 !important;
         }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            /* Reduce card padding for smaller screens */
+            .translucent-card {
+                padding: 20px 15px;
+                margin: 20px 10px;
+            }
+
+            /* Stack the two-column poetry layout vertically */
+            .two-column {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            /* Make the publication table scroll horizontally if it overflows */
+            .pub-table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .pub-table th, .pub-table td {
+                padding: 8px 10px;
+                font-size: 0.85rem;
+            }
+
+            /* Hide or reposition absolute stickers to prevent layout clipping */
+            .guitar-sticker, 
+            .small-stars-sticker, 
+            .dotted-stars-sticker, 
+            .hearts-sticker {
+                display: none; /* Safest option for mobile to prevent overflow */
+            }
+
+            /* Adjust decoration row at the bottom */
+            .decor-row {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .cassette-img {
+                width: 120px;
+            }
+
+            .character-img {
+                max-height: 130px;
+            }
+        }
     </style>
 </head>
 <body>
