@@ -595,6 +595,11 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
+.manhwa-grid-1x2 img:hover {
+    transform: scale(1.05);
+    border-color: #C39BD3;
+}
+
 .back-btn-container {
     display: flex;
     justify-content: center;
@@ -890,6 +895,82 @@ a, button, select, .circle-btn, .icon-link {
     .playlist-embeds {
         grid-template-columns: 1fr;
         width: 100%;
+    }
+
+    .content-container {
+        padding: 20px;
+        margin: 20px 15px; 
+    }
+
+    .main-nav {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .profile-card.id-card-landscape {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .id-left, .id-right {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .id-bullets {
+        padding-left: 0;
+        list-style-position: inside;
+        text-align: center;
+    }
+
+    .manga-grid-3x3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .grid-1x4, .character-grid-2x2, .grid-1x3 {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+    
+    .manga-grid-3x3 a img, .grid-1x4 a img, .character-icon {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 2 / 3;
+    }
+
+    .manhwa-grid-1x2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .manhwa-grid-1x2 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .floating-music-player {
+        width: 85%;
+        right: 15px;
+        bottom: 15px;
+    }
+    .nav-circles {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .circle-btn img {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .manga-grid-3x3, .grid-1x4, .character-grid-2x2, .grid-1x3 {
+        grid-template-columns: 1fr;
     }
 }
 

@@ -264,19 +264,16 @@
                 overflow-x: hidden;
             }
 
-            /* Reduce card padding for smaller screens */
             .translucent-card {
                 padding: 20px 15px;
                 margin: 20px 10px;
             }
 
-            /* Stack the two-column poetry layout vertically */
             .two-column {
                 flex-direction: column;
                 gap: 20px;
             }
 
-            /* Make the publication table scroll horizontally if it overflows */
             .pub-table-container {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
@@ -287,15 +284,13 @@
                 font-size: 0.85rem;
             }
 
-            /* Hide or reposition absolute stickers to prevent layout clipping */
             .guitar-sticker, 
             .small-stars-sticker, 
             .dotted-stars-sticker, 
             .hearts-sticker {
-                display: none; /* Safest option for mobile to prevent overflow */
+                display: none;
             }
 
-            /* Adjust decoration row at the bottom */
             .decor-row {
                 justify-content: center;
                 flex-wrap: wrap;
@@ -310,6 +305,10 @@
             .character-img {
                 max-height: 130px;
             }
+            
+            .continue-btn {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -321,7 +320,7 @@
             <div class="dropdown">
                 <span class="nav-link dropbtn">Portfolios ✰</span>
                 <div class="dropdown-content">
-                    <a href="poetry.html">poetry | written works</a>
+                    <a href="lit.html">poetry | written works</a>
                     <a href="visual-arts.html">visual arts</a>
                     <a href="coding.html">coding</a>
                 </div>
@@ -345,7 +344,7 @@
         <div class="translucent-card">
             
             <div class="card-header-title">
-                <a href="poetry.html" 
+                <a href="lit.html" 
                    class="music-trigger" 
                    data-title="˖ ݁♬⋆.˚𝄞." 
                    data-track="0WWLnzomFb6SJyEPBRzqAZ" 
@@ -376,11 +375,11 @@
                     <tbody>
                         <tr>
                             <td>Red Meat</td>
-                            <td>Behind The Closet Door: A Pride Month Special Anthology | <a href="https://www.instagram.com/jollie.publication/?hl=en" target="_blank" rel="noopener noreferrer">Jollie Publication</a></td>
+                            <td><a href="https://amzn.in/d/0cNIvhrP" target="_blank" rel="noopener noreferrer">Behind The Closet Door: A Pride Month Special Anthology</a> | <a href="https://www.instagram.com/jollie.publication/?hl=en" target="_blank" rel="noopener noreferrer">Jollie Publication</a></td>
                         </tr>
                         <tr>
                             <td>State of the Art</td>
-                            <td>Helter Skelter | <a href="https://www.facebook.com/share/p/1C1x9k1PzH/" target="_blank" rel="noopener noreferrer">DLSU Writer's Guild</a></td>
+                            <td><a href="https://www.facebook.com/share/p/1C1x9k1PzH/" target="_blank" rel="noopener noreferrer">Helter Skelter</a> | <a href="https://www.facebook.com/DLSUWG" target="_blank" rel="noopener noreferrer">DLSU Writer's Guild</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -400,7 +399,14 @@
                         </tr>
                         <tr>
                             <td>Inside My Treehouse</td>
-                            <td>Issue 01: Time Keeps A Pocket | <a href="https://www.instagram.com/atelierlitmag/" target="_blank" rel="noopener noreferrer">The Atelier Literary Magazine</a></td>
+                            <td>
+                                Issue 01: Time Keeps A Pocket | <a href="https://www.instagram.com/atelierlitmag/" target="_blank" rel="noopener noreferrer">The Atelier Literary Magazine</a><br>
+                                Plastic Dreams | <a href="https://www.instagram.com/renowned.artists" target="_blank" rel="noopener noreferrer">Renowned Magazine</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Clematis</td>
+                            <td><a href="https://heyzine.com/flip-book/c8224d445f.html" target="_blank" rel="noopener noreferrer">ISSUE 003: AUTOPHAGIA</a> | <a href="https://www.instagram.com/labyrinthinelitzine/" target="_blank" rel="noopener noreferrer">LABYRINTHINE Lit-Zine</a></td>
                         </tr>
                     </tbody>
                 </table>

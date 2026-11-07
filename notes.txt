@@ -1,8 +1,7 @@
 todo for another time:
 - add a vertical scrollbar on the corner to keep track of the pages, to be triggered by clicking a three horizontal line icon
-- some images when hovered on aren't transforming
 - add hover banners on some images/label redirections
-- optimize for mobile version
+- add new receiptifys
 
 notes:
 - am currently not accepting recs for reads because my backlog is long
